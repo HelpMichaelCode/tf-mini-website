@@ -22,9 +22,11 @@
               </div>
             </div>
           </nav>
-          <h1>Hello World!</h1>
-          <button type="button" class="btn btn-primary" onclick="getRandomDogPic()">Fetch Me</button>
-          
+          <h1>Hello Dogs!</h1>
+          <div class="container">
+            <button type="button" class="btn btn-primary" onclick="getRandomDogPic()">Fetch Me</button>
+          </div>
+          <img src="" alt="dog pics" id="myID">
     </body>
     <script type="text/javascript">
         var apiUrl = 'https://dog.ceo/api/breeds/image/random';
@@ -33,7 +35,8 @@
             return response.json();
             }).then(data => {
             // Work with JSON data here
-            console.log(data);
+            console.log(data.message);
+            document.getElementById("myID").src = data.message;
             }).catch(err => {
             // Do something for an error here
             });
